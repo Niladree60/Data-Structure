@@ -58,6 +58,20 @@ int pop ( struct stack * ptr)
         return val;
     }
 }
+int peek(struct stack * sp, int i)
+{
+    int indx = sp -> top-i+1;
+    if(indx < 0)
+    {
+        printf("Not a Valid Position\n");
+        return -1;
+    }
+    else
+    {
+        return sp->arr[indx];
+
+    }
+}
 int main()
 {
 
@@ -75,6 +89,7 @@ int main()
     push(sp,60);
     display(sp);
     printf("Popped %d from the stack\n", pop(sp));
+    printf("Peeked %d from the stack\n", peek(sp,1));
 
     return 0;
 }
