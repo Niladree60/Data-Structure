@@ -16,6 +16,7 @@ void display(struct stack *  ptr){
 }
 int isEmpty(struct stack * ptr)
 {
+    // O(1)
     if(ptr -> top == -1)
     {
         return 1;
@@ -25,6 +26,7 @@ int isEmpty(struct stack * ptr)
 }
 int isFull(struct stack * ptr)
 {
+    // O(1)
     if(ptr -> top == ptr -> size -1)
     {
         return 1;
@@ -34,6 +36,7 @@ int isFull(struct stack * ptr)
 }
 void push ( struct stack * ptr, int val)
 {
+    // O(1)
     if(isFull(ptr))
     {
         printf("Stack Overflow\n");
@@ -46,6 +49,7 @@ void push ( struct stack * ptr, int val)
 }
 int pop ( struct stack * ptr)
 {
+    // O(1)
     if(isEmpty(ptr))
     {
         printf("Stack Underflow\n");
@@ -60,6 +64,7 @@ int pop ( struct stack * ptr)
 }
 int peek(struct stack * sp, int i)
 {
+    // O(1)
     int indx = sp -> top-i+1;
     if(indx < 0)
     {
@@ -71,6 +76,14 @@ int peek(struct stack * sp, int i)
         return sp->arr[indx];
 
     }
+}
+int stackTop(struct stack * sp)
+{
+    return sp->arr[sp->top];
+}
+int stackBottom(struct stack * sp)
+{
+    return sp->arr[0];
 }
 int main()
 {
@@ -88,8 +101,9 @@ int main()
     push(sp,59);
     push(sp,60);
     display(sp);
-    printf("Popped %d from the stack\n", pop(sp));
-    printf("Peeked %d from the stack\n", peek(sp,1));
+    //printf("Popped %d from the stack\n", pop(sp));
+    //printf("Peeked %d from the stack\n", peek(sp,1));
+    printf("Top %d from the stack\n", stackTop(sp));
 
     return 0;
 }
